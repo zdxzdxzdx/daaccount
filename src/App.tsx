@@ -10,7 +10,6 @@ import {
 import styled from 'styled-components';
 import Nav from './components/Nav';
 
-
 const Wrapper = styled.div`
    display: flex;
    flex-direction: column;
@@ -21,6 +20,7 @@ const Main = styled.div`
     flex-grow: 1; 
     overflow: auto;
 `
+
 function App() {
   return (
     <Router>
@@ -30,7 +30,6 @@ function App() {
           <Route path="/money">
             <Money/>
           </Route>
-
           <Route path="/tags">
             <Tags/>
           </Route>
@@ -38,13 +37,12 @@ function App() {
           <Route path="/statistics">
             <Statistics/>
           </Route>
-
           <Redirect exact from="/" to="/money"/>
-
           <Route path="*">
             <NoMatch/>
           </Route>
         </Switch>
+
       </Main>
         <Nav/>
       </Wrapper>
