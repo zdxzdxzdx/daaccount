@@ -380,7 +380,6 @@ module.exports = function (webpackEnv) {
                   } },
               ]
             },
-
             {
               test: [/\.avif$/],
               loader: require.resolve('url-loader'),
