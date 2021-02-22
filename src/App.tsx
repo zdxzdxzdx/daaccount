@@ -10,6 +10,7 @@ import {
 import styled from 'styled-components';
 import Nav from './components/Nav';
 
+
 const Wrapper = styled.div`
    display: flex;
    flex-direction: column;
