@@ -6,12 +6,11 @@ import {
   Route,
   Redirect
 } from 'react-router-dom';
+
 import styled from 'styled-components';
 import Nav from './components/Nav';
 
-
-const Wrapper = styled.div
-  `
+const Wrapper = styled.div`
    display: flex;
    flex-direction: column;
    height: 100vh;
