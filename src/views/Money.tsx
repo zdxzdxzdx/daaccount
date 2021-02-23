@@ -45,8 +45,6 @@ const NotesSection = styled.section`
           border: none;
       }
     }
-     
-
 `;
 const CategorySection = styled.section`
     font-size: 24px;
@@ -59,7 +57,8 @@ const CategorySection = styled.section`
           text-align: center;
           padding: 16px 0;
           position: relative;
-          background: #F0DE38;
+          //background: #F0DE38;
+          background: aliceblue;
            &.selected::after{
               content: '';
               display: block;
@@ -77,6 +76,40 @@ const CategorySection = styled.section`
 
 `;
 const NumberSection = styled.section`
+    display: flex;
+    flex-direction: column;
+    >.output{
+      background: white;
+      font-size: 36px;
+      line-height: 72px;
+      text-align: right;
+      padding: 0 16px;
+      box-shadow: inset 0 -5px 5px -5px rgba(0,0,0,0.25),
+                  inset 0 5px 5px -5px rgba(0,0,0,0.25);
+    }
+    >.pad{
+    >button{
+        font-size: 18px;
+        float: left;
+        width: 25%;
+        height: 64px;
+        border: none;
+        background: #F2F2F2;
+    &.OK{
+         height: 128px;
+         float: right; 
+    }
+    &.zero{
+        width: 50%;
+    }
+    
+    &:nth-child(1){
+    
+    }
+    }
+    
+    }
+   
 
 `;
 
@@ -107,6 +140,10 @@ function Money() {
         </ul>
       </CategorySection>
       <NumberSection>
+        <div className="output">
+        100
+        </div>
+        <div className="pad clearfix">
         <button>1</button>
         <button>2</button>
         <button>3</button>
@@ -118,13 +155,13 @@ function Money() {
         <button>7</button>
         <button>8</button>
         <button>9</button>
-        <button>OK</button>
-        <button>0</button>
-        <button>.</button>
+        <button className="OK">OK</button>
+        <button className="zero">0</button>
+        <button className="dot">.</button>
+        </div>
       </NumberSection>
     </Layout>
 
   );
 }
-
 export default Money;
