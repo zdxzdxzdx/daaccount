@@ -1,10 +1,11 @@
 import Layout from '../components/Layout';
 import React from 'react';
 import styled from 'styled-components';
-import {NotesSection} from './Money/NotesSection';
+import {NoteSection} from './Money/NoteSection';
 import {CategorySection} from './Money/CategorySection';
 import {NumberSection} from './Money/NumberSection';
 import {TagSection} from './Money/TagSection';
+
 
 const MyLayout = styled(Layout)`
     display: flex;
@@ -13,16 +14,8 @@ const MyLayout = styled(Layout)`
 function Money() {
   return (
     <MyLayout>
-      <TagSection>
-
-      </TagSection>
-      <NotesSection>
-        <label>
-          <span>备注</span>
-          <input type="text" placeholder="请在这里输入备注"/>
-        </label>
-
-      </NotesSection>
+      <TagSection/>
+      <NoteSection/>
       <CategorySection>
         <ul>
           <li className="selected">支出</li>
