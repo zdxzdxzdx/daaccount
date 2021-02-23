@@ -39,7 +39,7 @@ const Wrapper = styled.section`
       <ul>
         {categoryList.map(c=><li
         className={category===c?'selected':''}
-        onClick={()=>{setCategory(c)}} key={categoryMap[c]}
+        onClick={()=>{setCategory(c)}} key={c}
         >{categoryMap[c]}
 
         </li>)}
