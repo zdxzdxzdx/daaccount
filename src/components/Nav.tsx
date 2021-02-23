@@ -24,7 +24,7 @@ const NavWrapper = styled.nav`
      }
      
      &.selected{
-        color: red;
+        color: #F0DE38;
         .icon{
         fill: #F0DE38;
         }
