@@ -2,7 +2,7 @@ import Layout from '../components/Layout';
 import React from 'react';
 import styled from 'styled-components';
 
-const TagSection= styled.section `
+const TagSection = styled.section`
       background: #FFFFFF;
       padding: 12px 16px;
       > ol {
@@ -25,8 +25,8 @@ const TagSection= styled.section `
         margin-top: 8px;
       }
 
-`
-const NotesSection = styled.section `
+`;
+const NotesSection = styled.section`
    background: #f5f5f5;
    padding: 0 16px;
    font-size: 14px;
@@ -47,36 +47,62 @@ const NotesSection = styled.section `
     }
      
 
-`
-const CategorySection = styled.section `
+`;
+const CategorySection = styled.section`
+    font-size: 24px;
+    > ul{
+        display: flex;
+        background: #c4c4c4;
+        
+        > li {
+          width: 50%;
+          text-align: center;
+          padding: 16px 0;
+          position: relative;
+          background: #F0DE38;
+           &.selected::after{
+              content: '';
+              display: block;
+              height: 3px;
+              background: #333;
+              position: absolute;
+              bottom: 0;
+              width: 100%;
+              left: 0;
+              
+           }
+          
+        }
+    }
 
-`
+`;
 const NumberSection = styled.section`
 
-`
+`;
+
 function Money() {
-  return(
+  return (
     <Layout>
-    <TagSection>
-      <ol>
-        <li>衣</li>
-        <li>食</li>
-        <li>住</li>
-        <li>行</li>
-      </ol>
-      <button>新增标签</button>
-    </TagSection>
+      <TagSection>
+        <ol>
+          <li>衣</li>
+          <li>食</li>
+          <li>住</li>
+          <li>行</li>
+        </ol>
+        <button>新增标签</button>
+      </TagSection>
 
       <NotesSection>
         <label>
           <span>备注</span>
-          <input type="text" placeholder="请在这里输入备注" />
+          <input type="text" placeholder="请在这里输入备注"/>
         </label>
 
       </NotesSection>
       <CategorySection>
         <ul>
-          <li>支出</li>
+          <li className="selected">支出</li>
           <li>收入</li>
         </ul>
       </CategorySection>
@@ -96,7 +122,9 @@ function Money() {
         <button>0</button>
         <button>.</button>
       </NumberSection>
-  </Layout>
+    </Layout>
 
-)}
-export  default  Money;
+  );
+}
+
+export default Money;
