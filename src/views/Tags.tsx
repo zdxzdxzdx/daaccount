@@ -43,9 +43,9 @@ function Tags() {
   const {tags, setTags} = useTags();
   return <Layout>
     <TagList>
-      {tags.map(tag => <li key={tag}>
+      {tags.map(tag => <li key={tag.id}>
         <Link to={'/tags/' + tag}>
-          <span className="oneLine">{tag}</span>
+          <span className="oneLine">{tag.name}</span>
           <Icon name="right"/>
         </Link>
       </li>)}
