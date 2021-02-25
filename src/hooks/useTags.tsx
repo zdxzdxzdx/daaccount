@@ -9,9 +9,7 @@ const useTags = ()=> {
   const [tags, setTags] = useState<{ id: number, name: string }[]>([]);
     useEffect(()=>{
        let localTag= JSON.parse(window.localStorage.getItem('tags')||'[]')
-       console.log(localTag.length);
        if (localTag.length === 0){
-         console.log(localTag.length);
          localTag = [
            {id:createId(),name:'衣'},
            {id:createId(),name:'食'},
