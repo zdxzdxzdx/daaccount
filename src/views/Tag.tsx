@@ -28,11 +28,33 @@ const InputWrpper = styled.div`
     margin-top: 8px;
 `
 
+
+
   const Tag: React.FC =()=>{
-      const {findTag,updateTag}=useTags()
+      const {findTag,updateTag,deleteTag}=useTags()
     // 将id重命名为idString
   let { id: idString } = useParams<Params>();
   const tag =findTag(parseInt(idString));
+
+  const tagContent= ( tag:{id:number;name: string})=>(
+    <div>
+      <InputWrpper>
+        {/*{改tag.name ,但tag.name是从 findTag里读取的,用updateTag改 }*/}
+        <Input label="标签名" type="text" value={tag.name}
+               onChange={(e) => {
+                 updateTag(tag.id, {name: e.target.value})
+               }}/>
+      </InputWrpper>
+    <Center>
+      <Space/>
+      <Space/>
+      <Space/>
+      <Button onClick={() => {
+        deleteTag(tag.id)
+      }}>删除标签</Button>
+    </Center>
+    </div>
+  )
 
   return(
     <Layout>
@@ -41,20 +63,7 @@ const InputWrpper = styled.div`
         <span>编辑标签</span>
         <Icon />
       </Topbar>
-      <div>
-        <InputWrpper>
-          {/*改tag.name ,但tag.name是从 findTag里读取的，*/}
-          <Input label="标签名" type="text" value={tag.name}
-                 onChange={(e)=>{updateTag(tag.id,{name:e.target.value})}} />
-        </InputWrpper>
-      </div>
-      <Center>
-        <Space/>
-        <Space/>
-        <Space/>
-
-    <Button>删除标签</Button>
-      </Center>
+      {tag?tagContent(tag):<Center>tag不存在</Center>}
   </Layout>)
 }
 export {Tag}
