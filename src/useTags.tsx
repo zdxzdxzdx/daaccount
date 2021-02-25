@@ -24,19 +24,12 @@ const useTags = ()=> {
 
       return result;
     }
-      const updateTag = (id:number,obj:{name:string})=>{
-        const index= findTagIndex(id);
-        //深拷贝tags得到tagClone
-        const tagClone = JSON.parse((JSON).stringify(tags))
-        tagClone.splice(index,1,{id:id,name: obj.name})
-        setTags(tagClone)
+      const updateTag = (id:number,{name}:{name:string})=>{
+         setTags(tags.map(tag =>tag.id===id?{id,name:name}:tag))
       }
 
       const deleteTag = (id:number)=>{
-      const index=findTagIndex(id);
-        const tagClone = JSON.parse((JSON).stringify(tags))
-        tagClone.splice(index,1)
-        setTags(tagClone)
+       setTags(tags.filter(tag=>tag.id!==id))
       }
 
   return {tags,setTags,findTag,updateTag,findTagIndex,deleteTag};
