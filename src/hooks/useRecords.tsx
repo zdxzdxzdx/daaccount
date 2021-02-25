@@ -31,7 +31,6 @@ const useRecords = () => {
   }
   //每次创建new加上createAt
     const record= {...newRecord,createdAt:(new Date()).toISOString()};
-
     setRecord([...records, record]);
   };
   return {records, addRecord};
