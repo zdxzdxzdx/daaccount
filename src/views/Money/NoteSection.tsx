@@ -22,24 +22,22 @@ const Wrapper = styled.section`
       }
     }
 `;
-type Props= {
+type Props = {
   value: string,
   onChange: (value: string) => void
 
 }
-const NoteSection:React.FC<Props> = (props) => {
-  // const [note, setNote] = useState('');
-   const note = props.value;
-   const onChange: ChangeEventHandler<HTMLInputElement> =(e)=>{
-     props.onChange(e.target.value)
-   }
+const NoteSection: React.FC<Props> = (props) => {
+  const note = props.value;
+  const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    props.onChange(e.target.value);
+  };
 
   return (
     <Wrapper>
       <label>
-        {/*<span>备注</span>*/}
         <Input label="备注" type="text" value={note} onChange={onChange}
-          placeholder="请填写备注"/>
+               placeholder="请填写备注"/>
       </label>
     </Wrapper>
   );

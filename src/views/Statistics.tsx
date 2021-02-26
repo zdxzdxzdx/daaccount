@@ -30,48 +30,48 @@ function Statistics() {
   const [category, setCategory] = useState<'-' | '+'>('-');
   const {records} = useRecords();
   const {getName} = useTags();
-  const hash : { [K:string] : RecordItem[]}={}
-  const selectedRecord = records.filter(r=>r.category===category);
+  const hash: { [K: string]: RecordItem[] } = {};
+  const selectedRecord = records.filter(r => r.category === category);
 
-  selectedRecord.forEach(s=>{
-    const  key = day(s.createdAt).format('YYYY年MM月DD日')
+  selectedRecord.forEach(s => {
+    const key = day(s.createdAt).format('YYYY年MM月DD日');
     const value = s;
-    if (!(key in hash)){
-      hash[key]=[];
+    if (!(key in hash)) {
+      hash[key] = [];
     }
-    hash[key].push(value)
-  })
+    hash[key].push(value);
+  });
 
-  const array = Object.entries(hash).sort((a,b)=>{
-        if (a===b) return 0 ;
-        if (a > b) return -1;
-        if (a<b) return 1
-        return 0
-  })
+  const array = Object.entries(hash).sort((a, b) => {
+    if (a === b) return 0;
+    if (a > b) return -1;
+    if (a < b) return 1;
+    return 0;
+  });
 
   return <Layout>
     <CategorySection value={category} onChange={value => setCategory(value)}/>
     <div>
-      {array.map(([date,records])=>
+      {array.map(([date, records]) =>
         <div>
-        <Header>
-          {date}
-        </Header>
-        {records.map(r => {
-            return <Item>
-              <div className="tags oneLine">
-                {r.tagIds.map( t => <span key={t}> {getName(t)}</span>)}
-              </div>
-              {r.note && <div className="note">{r.note}</div>}
-              <div className="amount">
-                ￥{r.amount}
-              </div>
-            </Item>;
+          <Header>
+            {date}
+          </Header>
+          {records.map(r => {
+              return <Item>
+                <div className="tags oneLine">
+                  {r.tagIds.map(t => <span key={t}> {getName(t)}</span>)}
+                </div>
+                {r.note && <div className="note">{r.note}</div>}
+                <div className="amount">
+                  ￥{r.amount}
+                </div>
+              </Item>;
+            }
+          )
           }
-        )
-        }
 
-      </div>)}
+        </div>)}
 
     </div>
 

@@ -41,8 +41,7 @@ type Props = {
 }
 
 const TagSection: React.FC<(Props)> = (props) => {
-   const {tags, addTag} = useTags();
-
+  const {tags, addTag} = useTags();
   const selectedTagIds = props.value;
 
   const getClass = (tagId: number) => selectedTagIds.indexOf(tagId) >= 0 ? 'selected' : '';
