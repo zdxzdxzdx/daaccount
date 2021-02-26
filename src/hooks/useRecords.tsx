@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-
+import {useUpdate} from './useUpdate';
  export  type RecordItem = {
   tagIds: number[];
   note: string;
@@ -17,9 +17,10 @@ const useRecords = () => {
     setRecord(JSON.parse(window.localStorage.getItem('records') || '[]'));
   }, []);
 
-  useEffect(() => {
+  useUpdate(() => {
     window.localStorage.setItem('records', JSON.stringify(records));
-  }, [records]);
+  }, records);
+
   const addRecord = (newRecord: newRecordItem) => {
   if (newRecord.amount<=0){
     alert("请输入金额")
