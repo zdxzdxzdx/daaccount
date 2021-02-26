@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-type RecordItem = {
+ export  type RecordItem = {
   tagIds: number[];
   note: string;
   category: '+' | '-';
