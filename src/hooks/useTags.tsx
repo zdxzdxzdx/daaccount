@@ -18,7 +18,7 @@ const useTags = () => {
     }
     setTags(localTag);
   }, []);
-    console.log(tags)
+
 
   useUpdate(() => {
     window.localStorage.setItem('tags', JSON.stringify(tags));

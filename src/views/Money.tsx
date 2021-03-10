@@ -33,7 +33,6 @@ function Money() {
   };
   const submit = ()=>{
     if (addRecord(selected) ){
-      console.log("成功未打印")
       alert('保存成功')
     setSelected(defaultFormData);}
 

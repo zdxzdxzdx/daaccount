@@ -23,6 +23,7 @@ const Wrapper = styled.section`
     &.OK{
          height: 128px;
          float: right; 
+         background: #f0de38;
     }
     &.zero{
         width: 50%;
